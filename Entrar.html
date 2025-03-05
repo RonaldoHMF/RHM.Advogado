@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .link-button {
+            background-color: transparent;
+            color: #007BFF;
+            text-decoration: underline;
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .link-button:hover {
+            color: #0056b3;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 15px;
+        }
+        .checkbox-container input {
+            width: auto;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="show-password">
+                <label for="show-password">Visualizar Senha</label>
+            </div>
+            
+            <button type="submit">Logar</button>
+        </form>
+        <button class="link-button" onclick="location.href='/recuperar-senha'">Recuperar Senha</button>
+        <button class="link-button" onclick="location.href='/criar-conta'">Criar Conta</button>
+    </div>
+
+    <script>
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        function createAccount(username, password) {
+            users.push({ username, password });
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        function login(username, password) {
+            const user = users.find(user => user.username === username && user.password === password);
+            if (user) {
+                window.location.href = '/logar.html';
+            } else {
+                alert('Usuário ou senha incorretos');
+            }
+        }
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            login(username, password);
+        });
+
+        document.getElementById('show-password').addEventListener('change', function() {
+            const passwordInput = document.getElementById('password');
+            if (this.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+
+        createAccount('RonaldoHMF', 'RHMjur');
+    </script>
+</body>
+</html>

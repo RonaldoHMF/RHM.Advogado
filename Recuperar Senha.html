@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+</head>
+<body>
+    <h2>Recuperar Senha</h2>
+    <form id="recover-password-form">
+        <label for="recover-username">Usuário:</label>
+        <input type="text" id="recover-username" name="recover-username" required><br><br>
+        
+        <button type="submit">Recuperar Senha</button>
+    </form>
+    <br>
+    <button onclick="location.href='/entrar.html'">Voltar</button>
+</body>
+</html>
+
+<script>
+    document.getElementById('recover-password-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('recover-username').value;
+        const user = users.find(user => user.username === username);
+        if (user) {
+            alert('Sua senha é: ' + user.password);
+        } else {
+            alert('Usuário não encontrado');
+        }
+    });
+</script>
+
+<script>
+    document.getElementById('recover-password-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('recover-username').value;
+        const user = users.find(user => user.username === username);
+        if (user) {
+            sendPasswordResetEmail(user.email);
+            alert('Um link para redefinição de senha foi enviado para o seu e-mail.');
+        } else {
+            alert('Usuário não encontrado');
+        }
+    });
+
+    function sendPasswordResetEmail(email) {
+        // Aqui você deve implementar a lógica para enviar o e-mail de redefinição de senha.
+        // Isso geralmente envolve fazer uma solicitação para o servidor que gerará e enviará o e-mail.
+        console.log(`Enviando e-mail de redefinição de senha para ${email}`);
+    }
+</script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        color: white;
+        background-color: black;
+        
+    }
+    header h1 {
+        color: white;
+    }
+    main h2 {
+        color: white;
+    }
+    main p {
+        color: white;
+    }
+    
+</style>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+</head>
+<body>
+    <h2>Criar Conta</h2>
+    <form id="create-account-form">
+        <label for="new-username">Usuário:</label>
+        <input type="text" id="new-username" name="new-username" required><br><br>
+        
+        <label for="new-password">Senha:</label>
+        <input type="password" id="new-password" name="new-password" required><br><br>
+        
+        <button type="submit">Criar Conta</button>
+    </form>
+    <br>
+    <button onclick="location.href='/entrar.html'">Voltar</button>
+</body>
+</html>
+
+<script>
+    document.getElementById('create-account-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('new-username').value;
+        const password = document.getElementById('new-password').value;
+        createAccount(username, password);
+        alert('Conta criada com sucesso!');
+        window.location.href = '/entrar.html';
+    });
+</script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        color: white;
+        background-color: black;
+        
+    }
+    header h1 {
+        color: white;
+    }
+    main h2 {
+        color: white;
+    }
+    main p {
+        color: white;
+    }
+    
+</style>
+
