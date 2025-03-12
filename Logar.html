@@ -1,62 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
+    <header>
+        
+        <img src="./img/Minimalista.jpeg" alt="Logo RHM.Advogado">
+        <h1>RHM.Advogado</h1>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </header>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de Processos e Clientes</title>
+    <title>Exibir Página ao Clicar</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            color: #333;
-            background-color: #070707;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #0e0d0d;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        #pagina {
+            display: none; /* Oculta a página inicialmente */
+            border: 1px solid #ccc;
             padding: 20px;
-            border-radius: 8px;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section h2 {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px;
-            border-radius: 4px;
-            margin: 0 -20px 20px -20px;
-            padding-left: 20px;
-        }
-        .section p {
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="section" id="processos-ativos">
-            <h2>Processos Ativos</h2>
-            <p><!-- Conteúdo para processos ativos --></p>
-        </div>
-        <div class="section" id="processos-encerrados">
-            <h2>Processos Encerrados</h2>
-            <p><!-- Conteúdo para processos encerrados --></p>
-        </div>
-        <div class="section" id="processos-arquivados">
-            <h2>Processos Arquivados</h2>
-            <p><!-- Conteúdo para processos arquivados --></p>
-        </div>
-        <div class="section" id="clientes">
-            <h2>Gerenciamento de Clientes</h2>
-            <p><!-- Conteúdo para gerenciamento de clientes --></p>
-        </div>
+
+    <button onclick="mostrarPagina()">Cálculos de Verbas Trabalhistas</button>
+    
+
+    <div id="pagina">
+        <h2>Bem-vindo!</h2>
+        <p><!DOCTYPE html>
+            <html lang="pt-BR">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Cálculos Trabalhistas</title>
+                <style>
+                    body {
+                        background-color: #121212;
+                        color: #e0e0e0;
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        min-height: 100vh;
+                        transition: background-color 0.3s ease;
+                    }
+                    .container {
+                        width: 90%;
+                        max-width: 600px;
+                        background-color: #1e1e1e;
+                        padding: 20px;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                        text-align: center;
+                    }
+                    h1 {
+                        margin-bottom: 20px;
+                        font-size: 2em;
+                    }
+                    button {
+                        background-color: #333;
+                        color: #e0e0e0;
+                        border: none;
+                        padding: 10px 20px;
+                        cursor: pointer;
+                        font-size: 16px;
+                        margin: 10px;
+                        border-radius: 5px;
+                        transition: background-color 0.3s ease;
+                    }
+                    button:hover {
+                        background-color: #555;
+                    }
+                    label, input {
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 10px;
+                        text-align: left;
+                    }
+                    input[type="number"], input[type="text"], input[type="date"] {
+                        background-color: #333;
+                        color: #e0e0e0;
+                        border: 1px solid #555;
+                        padding: 10px;
+                        box-sizing: border-box;
+                        border-radius: 5px;
+                        transition: border-color 0.3s ease;
+                        width: 100%;
+                    }
+                    input[type="number"]:focus, input[type="text"]:focus, input[type="date"]:focus {
+                        border-color: #777;
+                    }
+                    .button-container {
+                        margin-top: 20px;
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                    }
+                    .resultados {
+                        width: 100%;
+                        text-align: center;
+                        margin-top: 20px;
+                        background-color: #2e2e2e;
+                        padding: 20px;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    }
+                    .resultados p {
+                        margin: 5px 0;
+                        font-size: 1.1em;
+                    }
+                    .resultados p span {
+                        font-weight: bold;
+                        color: #4caf50;
+                    }
+                    .salarioVariacao {
+                        margin-bottom: 10px;
+                        width: 100%;
+                    }
+            
+                </style>
+            </head>
+            <body>
+            
+                <div class="container">
+                    <h1>Cálculo de Verbas Trabalhistas</h1>
+                    <div id="calculoForm"></div>
+                        <label for="salarioInicial">Salário Inicial (R$):</label>
+                        <input type="number" id="salarioInicial" placeholder="Ex: 2500" required>
+            
+                        <label for="horasSemanais">Horas Semanais:</label>
+                        <input type="number" id="horasSemanais" placeholder="Ex: 40" required>
+            
+                        <label for="dataAdmissao">Data de Admissão:</label>
+                        <input type="date" id="dataAdmissao" required>
+            
+                        <label for="dataDemissao">Data de Demissão:</label>
+                        <input type="date" id="dataDemissao" required>
+                    </div>
+                    <button type="button" onclick="adicionarVariacao()">Adicionar Variação Salarial</button>
+            
+                    <div class="button-container">
+                        <button onclick="calcularVerbas()">Calcular</button>
+                        <button onclick="limparCalculo()">Limpar</button>
+                    </div>
+            
+                    <h2>Resultado:</h2>
+                    <div class="resultados">
+                        <p id="resultadoTempoTrabalhado"></p>
+                        <p id="resultadoFeriasAdquiridas"></p>
+                        <p id="resultadoAvisoPrevio"></p>
+                        <p id="resultadoFerias"></p>
+                        <p id="resultadoDecimoTerceiro"></p>
+                        <p id="resultadoFgts"></p>
+                        <p id="resultadoMultaFgts"></p>
+                        <p id="resultadoFeriasConstitucional"></p>
+                        <p id="resultadoTotal"></p>
+                    </div>
+                </div>
+                <script>
+                    let variacaoCount = 0;
+            
+                    function adicionarVariacao() {
+                        variacaoCount++;
+                        const form = document.getElementById('calculoForm');
+                        const div = document.createElement('div');
+                        div.className = 'salarioVariacao';
+                        div.innerHTML = `
+                            <label for="mesVariacao${variacaoCount}">Mês da Variação:</label>
+                            <input type="number" id="mesVariacao${variacaoCount}" placeholder="Ex: 6" required>
+                            <label for="anoVariacao${variacaoCount}">Ano da Variação:</label>
+                            <input type="number" id="anoVariacao${variacaoCount}" placeholder="Ex: 2021" required>
+                            <label for="valorVariacao${variacaoCount}">Valor da Variação (R$):</label>
+                            <input type="number" id="valorVariacao${variacaoCount}" placeholder="Ex: 3000" required>
+                        `;
+                        form.appendChild(div);
+                    }
+            
+                    function calcularVerbas() {
+                        const salarioInicial = parseFloat(document.getElementById('salarioInicial').value);
+                        const horasSemanais = parseFloat(document.getElementById('horasSemanais').value);
+                        const dataAdmissao = new Date(document.getElementById('dataAdmissao').value);
+                        const dataDemissao = new Date(document.getElementById('dataDemissao').value);
+                        const mesesTrabalhados = (dataDemissao.getFullYear() - dataAdmissao.getFullYear()) * 12 + (dataDemissao.getMonth() - dataAdmissao.getMonth());
+            
+                        const salarioVariacoes = [];
+                        for (let i = 1; i <= variacaoCount; i++) {
+                            const mes = parseInt(document.getElementById(`mesVariacao${i}`).value);
+                            const ano = parseInt(document.getElementById(`anoVariacao${i}`).value);
+                            const valor = parseFloat(document.getElementById(`valorVariacao${i}`).value);
+                            if (!isNaN(mes) && !isNaN(ano) && !isNaN(valor)) {
+                                const dataVariacao = new Date(ano, mes - 1);
+                                const mesesDesdeAdmissao = (dataVariacao.getFullYear() - dataAdmissao.getFullYear()) * 12 + (dataVariacao.getMonth() - dataAdmissao.getMonth());
+                                if (mesesDesdeAdmissao <= mesesTrabalhados) {
+                                    salarioVariacoes.push({ mesesDesdeAdmissao, valor });
+                                }
+                            }
+                        }
+            
+                        let salario = salarioInicial;
+                        salarioVariacoes.forEach(variacao => {
+                            if (variacao.mesesDesdeAdmissao <= mesesTrabalhados) {
+                                salario = variacao.valor;
+                            }
+                        });
+            
+                        const salarioPorHora = salario / (horasSemanais * 4);
+                        const ferias = salario / 3;
+                        const decimoTerceiro = salario;
+                        const fgts = salario * 0.08 * mesesTrabalhados;
+                        const multaFgts = fgts * 0.4;
+            
+                        const total = salario + ferias + decimoTerceiro + fgts + multaFgts;
+            
+                        const formatarValor = (valor) => valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            
+                        // Cálculo do tempo trabalhado
+                        const diffTime = Math.abs(dataDemissao - dataAdmissao);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        const diffYears = Math.floor(diffDays / 365);
+                        const diffMonths = Math.floor((diffDays % 365) / 30);
+                        const remainingDays = diffDays - (diffYears * 365 + diffMonths * 30);
+            
+                        // Cálculo de férias adquiridas
+                        const feriasAdquiridas = Math.floor(diffMonths / 12) + (diffYears) + (remainingDays >= 30 ? 1 : 0);
+                        const feriasConstitucional = feriasAdquiridas > 0 ? salario / 3 : 0;
+            
+                        document.getElementById('resultadoAvisoPrevio').innerHTML = `Aviso Prévio: <span>${formatarValor(salario)}</span>`;
+                        document.getElementById('resultadoFerias').innerHTML = `Férias Proporcionais: <span>${formatarValor(ferias)}</span>`;
+                        document.getElementById('resultadoDecimoTerceiro').innerHTML = `13º Salário: <span>${formatarValor(decimoTerceiro)}</span>`;
+                        document.getElementById('resultadoFgts').innerHTML = `Fundo de Garantia (8% mensal): <span>${formatarValor(fgts)}</span>`;
+                        document.getElementById('resultadoMultaFgts').innerHTML = `Multa FGTS (40% da base FGTS): <span>${formatarValor(multaFgts)}</span>`; 
+                        document.getElementById('resultadoFeriasConstitucional').innerHTML = `1/3 Constitucional: <span>${formatarValor(feriasConstitucional)}</span>`;
+                        document.getElementById('resultadoTempoTrabalhado').innerHTML = `Tempo Trabalhado: <span>${diffYears} anos, ${diffMonths} meses e ${remainingDays} dias</span>`;
+                        document.getElementById('resultadoFeriasAdquiridas').innerHTML = `Férias Adquiridas: <span>${feriasAdquiridas} períodos</span>`;
+                        document.getElementById('resultadoTotal').innerHTML = `Total a Receber: <span>${formatarValor(total)}</span>`;
+                    }
+            
+                    function limparCalculo() {
+                        document.getElementById('salarioInicial').value = '';
+                        document.getElementById('horasSemanais').value = '';
+                        document.getElementById('dataAdmissao').value = '';
+                        document.getElementById('dataDemissao').value = '';
+                        document.querySelectorAll('.salarioVariacao').forEach(div => div.remove());
+                        variacaoCount = 0;
+                        document.querySelectorAll('.resultados p').forEach(p => p.innerText = '');
+                    }
+                </script>
+            </body>
+            </html>
+            
+            </p>
     </div>
+
+    <script>
+    function mostrarPagina() {
+    let pagina = document.getElementById("pagina");
+
+    if (pagina.style.display === "none" || pagina.style.display === "") {
+        pagina.style.display = "block";
+    } else {
+        pagina.style.display = "none";
+    }
+}
+
+        
+    </script>
+
 </body>
 </html>
