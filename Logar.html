@@ -19,12 +19,25 @@
             padding: 20px;
             margin-top: 10px;
         }
+         #entrevistaForm {
+            display: none; /* Oculta a página inicialmente */
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
     <button onclick="mostrarPagina()">Cálculos de Verbas Trabalhistas</button>
-    
+     <button onclick="mostrarEntrevistaForm()">Entrevista trabalhista</button>
+     
+     <style>
+      
+    </style>
+  
+
+    <div class="button-container">
 
     <div id="pagina">
         <h2>Bem-vindo!</h2>
@@ -101,7 +114,7 @@
                         flex-wrap: wrap;
                     }
                     .resultados {
-                        width: 100%;
+                        width: 93%;
                         text-align: center;
                         margin-top: 20px;
                         background-color: #2e2e2e;
@@ -255,6 +268,94 @@
             
             </p>
     </div>
+     <div id="entrevistaForm">
+        <h2></h2>
+        <p><!DOCTYPE html><html lang="pt-BR">
+            <head>
+                <meta charset="UTF-8">
+                <title>Entrevista de Cliente – Ação Trabalhista</title>
+                <style>
+                    body { font-family: Arial, sans-serif; padding: 20px; }
+                    h1, h2 { color: #f7f3f3; }
+                    label { display: block; margin-top: 10px; }
+                    input, textarea, select { width: 100%; padding: 8px; margin-top: 5px; }
+                    .section { margin-bottom: 30px; }
+                </style>
+            </head>
+            <body>
+                <h1>Entrevista de Cliente – Ação Trabalhista</h1><div class="section">
+                <h2>1. Dados Pessoais do Cliente</h2>
+                <label>Nome completo:<input type="text"></label>
+                <label>Data de nascimento:<input type="date"></label>
+                <label>Estado civil:<input type="text"></label>
+                <label>CPF:<input type="text"></label>
+                <label>RG:<input type="text"></label>
+                <label>Endereço completo:<input type="text"></label>
+                <label>Telefone/WhatsApp:<input type="text"></label>
+                <label>E-mail:<input type="email"></label>
+            </div>
+            
+            <div class="section">
+                <h2>2. Dados do Empregador</h2>
+                <label>Nome da empresa:<input type="text"></label>
+                <label>CNPJ:<input type="text"></label>
+                <label>Endereço da empresa:<input type="text"></label>
+                <label>Nome do superior direto:<input type="text"></label>
+                <label>Ramo de atividade da empresa:<input type="text"></label>
+            </div>
+            
+            <div class="section">
+                <h2>3. Contrato de Trabalho</h2>
+                <label>Data de admissão:<input type="date"></label>
+                <label>Data de demissão:<input type="date"></label>
+                <label>Cargo/função:<input type="text"></label>
+                <label>Salário inicial:<input type="text"></label>
+                <label>Salário final:<input type="text"></label>
+                <label>Havia registro em carteira?<select><option>Sim</option><option>Não</option></select></label>
+                <label>CTPS assinada desde o início?<select><option>Sim</option><option>Não</option></select></label>
+            </div>
+            
+            <div class="section">
+                <h2>4. Jornada de Trabalho</h2>
+                <label>Horário de entrada e saída:<input type="text"></label>
+                <label>Intervalo para almoço e duração:<input type="text"></label>
+                <label>Realizava horas extras? Frequência:<input type="text"></label>
+                <label>Essas horas extras eram pagas?<input type="text"></label>
+            </div>
+            
+            <div class="section">
+                <h2>5. Situação da Rescisão</h2>
+                <label>Tipo de demissão:<input type="text"></label>
+                <label>Recebeu todos os valores rescisórios?<select><option>Sim</option><option>Não</option></select></label>
+                <label>Recebeu guias do FGTS e seguro-desemprego?<select><option>Sim</option><option>Não</option></select></label>
+                <label>Assinou algum documento na rescisão?<select><option>Sim</option><option>Não</option></select></label>
+                <label>Foi obrigado a assinar documentos em branco?<select><option>Sim</option><option>Não</option></select></label>
+            </div>
+            
+            <div class="section">
+                <h2>6. Direitos Não Cumpridos</h2>
+                <label>Pagamentos corretos (salário, férias, 13º, FGTS, INSS):<input type="text"></label>
+                <label>Recebia adicional de insalubridade ou periculosidade?<select><option>Sim</option><option>Não</option></select></label>
+                <label>Havia desvio ou acúmulo de função?<select><option>Sim</option><option>Não</option></select></label>
+                <label>Sofreu assédio moral ou sexual?<select><option>Sim</option><option>Não</option></select></label>
+                <label>Testemunhas disponíveis? Quem são:<input type="text"></label>
+            </div>
+            
+            <div class="section">
+                <h2>7. Outras Informações Relevantes</h2>
+                <label>Possui documentos comprobatórios?:<input type="text"></label>
+                <label>Tem interesse em reintegração?:<select><option>Sim</option><option>Não</option></select></label>
+                <label>Sofre ou sofreu de doença ocupacional ou acidente de trabalho?:<select><option>Sim</option><option>Não</option></select></label>
+            </div>
+
+            <div style="text-align: center;">
+            <button onclick="imprimirEntrevista()">Imprimir Entrevista</button>
+            </div>
+
+            </body>
+            </html></p>
+        
+    </div>
 
     <script>
     function mostrarPagina() {
@@ -266,9 +367,66 @@
         pagina.style.display = "none";
     }
 }
+ function mostrarEntrevistaForm() {
+    let entrevistaForm = document.getElementById("entrevistaForm");
+
+    if (entrevistaForm.style.display === "none" || entrevistaForm.style.display === "") {
+        entrevistaForm.style.display = "block";
+    } else {
+        entrevistaForm.style.display = "none";
+    }
+}
 
         
     </script>
 
 </body>
 </html>
+
+<script>
+    function mostrarPagina() {
+        let pagina = document.getElementById("pagina");
+
+        if (pagina.style.display === "none" || pagina.style.display === "") {
+            pagina.style.display = "block";
+        } else {
+            pagina.style.display = "none";
+        }
+    }
+
+    function mostrarEntrevistaForm() {
+        let entrevistaForm = document.getElementById("entrevistaForm");
+
+        if (entrevistaForm.style.display === "none" || entrevistaForm.style.display === "") {
+            entrevistaForm.style.display = "block";
+        } else {
+            entrevistaForm.style.display = "none";
+        }
+    }
+
+    function imprimirEntrevista() {
+        window.print();
+        
+
+    }
+    
+</script>
+
+<style>
+    @media print {
+        #entrevistaForm {
+            display: block !important;
+        }
+
+        button {
+            display: none !important;
+        }
+    }
+
+    
+</style>
+
+
+
+
+
