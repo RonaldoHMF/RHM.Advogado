@@ -284,28 +284,211 @@
             </head>
             <body>
                 <h1>Entrevista de Cliente – Ação Trabalhista</h1><div class="section">
-                <h2>1. Dados Pessoais do Cliente</h2>
+                <h2>Dados Pessoais do Cliente</h2>
                 <label>Nome completo:<input type="text"></label>
-                <label>Data de nascimento:<input type="date"></label>
+                <label>Nacionalidade:<input type="text"></label>
                 <label>Estado civil:<input type="text"></label>
                 <label>CPF:<input type="text"></label>
                 <label>RG:<input type="text"></label>
-                <label>Endereço completo:<input type="text"></label>
+                <label>Órgão Expedidor:<input type="text"></label>
+                <label>CTPS:<input type="text"></label>
+                <label>PIS:<input type="text"></label>
+                <label>Data de nascimento:<input type="date"></label>
+                <label>Endereço:<input type="text"></label>
+                <label>Bairro:<input type="text"></label>
+                <label>Cidade:<input type="text"></label>
+                <label>UF:<input type="text"></label>
+                <label>CEP:<input type="text"></label>
                 <label>Telefone/WhatsApp:<input type="text"></label>
                 <label>E-mail:<input type="email"></label>
+                <label>Nome do pai:<input type="text"></label>
+                <label>Nome da mãe:<input type="text"></label>
+                <label>Nome do cônjuge:<input type="text"></label>
+                <label>Nome do(s) filho(s):<input type="text"></label>
+
             </div>
             
             <div class="section">
-                <h2>2. Dados do Empregador</h2>
+                <h2>Dados do Empregador</h2>
                 <label>Nome da empresa:<input type="text"></label>
                 <label>CNPJ:<input type="text"></label>
                 <label>Endereço da empresa:<input type="text"></label>
+                <label>E-mail:<input type="text"></label>
+                <label>Bairro:<input type="text"></label>
+                <label>Cidade:<input type="text"></label>
+                <label>UF:<input type="text"></label>
+                <label>CEP:<input type="text"></label>
                 <label>Nome do superior direto:<input type="text"></label>
                 <label>Ramo de atividade da empresa:<input type="text"></label>
             </div>
+
+            <!DOCTYPE html>
+            <html lang="pt-BR">
+            <head>
+              <meta charset="UTF-8">
+              <title>Empresas do mesmo grupo econômico</title>
+              <style>
+                .grupo-economico {
+                  display: none;
+                  margin-top: 10px;
+                  padding: 10px;
+                  border: 1px solid #ccc;
+                }
+            
+                label {
+                  display: block;
+                  margin-top: 5px;
+                }
+              </style>
+            </head>
+            <body>
+            
+              <div class="section">
+                <label>1 - O empregador possui outra empresa do mesmo grupo econômico?</label>
+                <select id="possuiOutraEmpresa" onchange="verificarGrupoEconomico()">
+                  <option value="nao">Não</option>
+                  <option value="sim">Sim</option>
+                </select>
+              </div>
+            
+              <div class="section grupo-economico">
+                <h2>1 - Empresa do mesmo grupo econômico:</h2>
+                <label>Nome da empresa:<input type="text"></label> 
+                <label>CNPJ:<input type="text"></label>
+                <label>Endereço da empresa:<input type="text"></label>
+                <label>E-mail:<input type="email"></label>
+                <label>Bairro:<input type="text"></label>
+                <label>Cidade:<input type="text"></label>
+                <label>UF:<input type="text"></label>
+                <label>CEP:<input type="text"></label>
+              </div>
+            
+              <div class="section grupo-economico">
+                <h2>2 - Empresa do mesmo grupo econômico:</h2>
+                <label>Nome da empresa:<input type="text"></label> 
+                <label>CNPJ:<input type="text"></label>
+                <label>Endereço da empresa:<input type="text"></label>
+                <label>E-mail:<input type="email"></label>
+                <label>Bairro:<input type="text"></label>
+                <label>Cidade:<input type="text"></label>
+                <label>UF:<input type="text"></label>
+                <label>CEP:<input type="text"></label>
+              </div>
+            
+              <div class="section grupo-economico">
+                <h2>3 - Empresa do mesmo grupo econômico:</h2>
+                <label>Nome da empresa:<input type="text"></label> 
+                <label>CNPJ:<input type="text"></label>
+                <label>Endereço da empresa:<input type="text"></label>
+                <label>E-mail:<input type="email"></label>
+                <label>Bairro:<input type="text"></label>
+                <label>Cidade:<input type="text"></label>
+                <label>UF:<input type="text"></label>
+                <label>CEP:<input type="text"></label>
+              </div>
+            
+              <script>
+                function verificarGrupoEconomico() {
+                  var select = document.getElementById("possuiOutraEmpresa");
+                  var blocos = document.querySelectorAll(".grupo-economico");
+            
+                  blocos.forEach(function(bloco) {
+                    bloco.style.display = (select.value === "sim") ? "block" : "none";
+                  });
+                }
+              </script>
+            
+            </body>
+            </html>
+            
+              
+                            
+            <!DOCTYPE html>
+            <html lang="pt-BR">
+            <head>
+              <meta charset="UTF-8">
+              <title>Empresas Tomadoras</title>
+              <style>
+                .tomadora-servicos {
+                  display: none;
+                  margin-top: 10px;
+                  padding: 10px;
+                  border: 1px solid #ccc;
+                }
+            
+                label {
+                  display: block;
+                  margin-top: 5px;
+                }
+              </style>
+            </head>
+            <body>
+            
+              <div class="section">
+                <label>Possui empresas tomadoras de serviços?</label>
+                <select id="possuiTomadora" onchange="verificarTomadora()">
+                  <option value="nao">Não</option>
+                  <option value="sim">Sim</option>
+                </select>
+              </div>
+            
+              <!-- Empresa 1 -->
+              <div class="section tomadora-servicos">
+                <h2>1 - Empresa tomadora de serviço</h2>
+                <label>Nome da empresa: <input type="text"></label> 
+                <label>CNPJ: <input type="text"></label>
+                <label>Endereço da empresa: <input type="text"></label>
+                <label>E-mail: <input type="email"></label>
+                <label>Bairro: <input type="text"></label>
+                <label>Cidade: <input type="text"></label>
+                <label>UF: <input type="text"></label>
+                <label>CEP: <input type="text"></label>
+              </div>
+            
+              <!-- Empresa 2 -->
+              <div class="section tomadora-servicos">
+                <h2>2 - Empresa tomadora de serviço</h2>
+                <label>Nome da empresa: <input type="text"></label> 
+                <label>CNPJ: <input type="text"></label>
+                <label>Endereço da empresa: <input type="text"></label>
+                <label>E-mail: <input type="email"></label>
+                <label>Bairro: <input type="text"></label>
+                <label>Cidade: <input type="text"></label>
+                <label>UF: <input type="text"></label>
+                <label>CEP: <input type="text"></label>
+              </div>
+            
+              <!-- Empresa 3 -->
+              <div class="section tomadora-servicos">
+                <h2>3 - Empresa tomadora de serviço</h2>
+                <label>Nome da empresa: <input type="text"></label> 
+                <label>CNPJ: <input type="text"></label>
+                <label>Endereço da empresa: <input type="text"></label>
+                <label>E-mail: <input type="email"></label>
+                <label>Bairro: <input type="text"></label>
+                <label>Cidade: <input type="text"></label>
+                <label>UF: <input type="text"></label>
+                <label>CEP: <input type="text"></label>
+              </div>
+            
+              <script>
+                function verificarTomadora() {
+                  var select = document.getElementById("possuiTomadora");
+                  var campos = document.querySelectorAll(".tomadora-servicos");
+            
+                  campos.forEach(function(campo) {
+                    campo.style.display = (select.value === "sim") ? "block" : "none";
+                  });
+                }
+              </script>
+            
+            </body>
+            </html>
+            
+            
             
             <div class="section">
-                <h2>3. Contrato de Trabalho</h2>
+                <h2>Contrato de Trabalho</h2>
                 <label>Data de admissão:<input type="date"></label>
                 <label>Data de demissão:<input type="date"></label>
                 <label>Cargo/função:<input type="text"></label>
@@ -316,7 +499,7 @@
             </div>
             
             <div class="section">
-                <h2>4. Jornada de Trabalho</h2>
+                <h2>Jornada de Trabalho</h2>
                 <label>Horário de entrada e saída:<input type="text"></label>
                 <label>Intervalo para almoço e duração:<input type="text"></label>
                 <label>Realizava horas extras? Frequência:<input type="text"></label>
@@ -324,7 +507,7 @@
             </div>
             
             <div class="section">
-                <h2>5. Situação da Rescisão</h2>
+                <h2>Situação da Rescisão</h2>
                 <label>Tipo de demissão:<input type="text"></label>
                 <label>Recebeu todos os valores rescisórios?<select><option>Sim</option><option>Não</option></select></label>
                 <label>Recebeu guias do FGTS e seguro-desemprego?<select><option>Sim</option><option>Não</option></select></label>
@@ -333,7 +516,7 @@
             </div>
             
             <div class="section">
-                <h2>6. Direitos Não Cumpridos</h2>
+                <h2>Direitos Não Cumpridos</h2>
                 <label>Pagamentos corretos (salário, férias, 13º, FGTS, INSS):<input type="text"></label>
                 <label>Recebia adicional de insalubridade ou periculosidade?<select><option>Sim</option><option>Não</option></select></label>
                 <label>Havia desvio ou acúmulo de função?<select><option>Sim</option><option>Não</option></select></label>
@@ -342,16 +525,21 @@
             </div>
             
             <div class="section">
-                <h2>7. Outras Informações Relevantes</h2>
+                <h2>Outras Informações Relevantes</h2>
                 <label>Possui documentos comprobatórios?:<input type="text"></label>
                 <label>Tem interesse em reintegração?:<select><option>Sim</option><option>Não</option></select></label>
                 <label>Sofre ou sofreu de doença ocupacional ou acidente de trabalho?:<select><option>Sim</option><option>Não</option></select></label>
             </div>
-
+            <div class="section" style="text-align: center; margin-top: 50px;">
+                <h2>Assinaturas</h2>
+                <p>Local e Data: ______________________________, ______ de _____________________ de ________</p>
+                <p style="margin-bottom: 60px;">____________________________________________<br>Assinatura do Cliente</p>
+                <p>____________________________________________<br>Assinatura do Advogado</p>
+         </div>
             <div style="text-align: center;">
             <button onclick="imprimirEntrevista()">Imprimir Entrevista</button>
             </div>
-
+           
             </body>
             </html></p>
         
@@ -379,7 +567,7 @@
 
         
     </script>
-
+ 
 </body>
 </html>
 
@@ -425,6 +613,7 @@
 
     
 </style>
+
 
 
 
