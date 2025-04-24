@@ -538,6 +538,35 @@
          </div>
             <div style="text-align: center;">
             <button onclick="imprimirEntrevista()">Imprimir Entrevista</button>
+            <style>
+                @media print {
+                    body {
+                        -webkit-print-color-adjust: exact !important;
+                        print-color-adjust: exact !important;
+                        background-color: #f0f0f0 !important; /* Cor de fundo para impressão */
+                        color: #000 !important; /* Cor do texto para impressão */
+                    }
+                    h1, h2, h3 {
+                        color: #1d1d1d !important; /* Cor dos títulos para impressão */
+                    }
+                    /* Estilos específicos para elementos dentro do formulário de entrevista */
+                    #entrevistaForm {
+                        background-color: #fff !important; /* Fundo branco para o formulário */
+                        color: #000 !important; /* Texto preto para o formulário */
+                        border: 1px solid #ccc !important; /* Borda para o formulário */
+                    }
+                    #entrevistaForm label {
+                        color: #333 !important; /* Cor das labels */
+                    }
+                    #entrevistaForm input,
+                    #entrevistaForm textarea,
+                    #entrevistaForm select {
+                        border: 1px solid #aaa !important; /* Bordas dos campos de entrada */
+                        color: #000 !important; /* Cor do texto nos campos de entrada */
+                        background-color: #eee !important; /* Fundo dos campos de entrada */
+                    }
+                }
+            </style>
             </div>
            
             </body>
